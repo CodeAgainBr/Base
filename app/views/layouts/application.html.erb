@@ -10,8 +10,18 @@
 
   <body>
     <div class="container">
-    	<p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <% if notice %>
+        <script>
+          toastr["success"]("<%= notice %>");
+        </script>
+      <% end %>
+
+      <% if alert %>
+        <script>
+          toastr["warning"]("<%= alert %>");
+        </script>
+      <% end %>
+
       <%= yield %>
     </div>
   </body>
